@@ -1,4 +1,4 @@
-export default function Square({ value, onSquareClick}: { value: string, onSquareClick: () => void }) {
+export default function Square({ value, onSquareClick}: { value: 'X' | 'O' | null, onSquareClick: () => void }) {
     return (
       <button
         style={{
@@ -16,7 +16,7 @@ export default function Square({ value, onSquareClick}: { value: string, onSquar
         }}
         onClick={onSquareClick}
       >
-        {value}
+        {value ?? ""}
       </button>
     )
   }

@@ -1,13 +1,11 @@
-import { useState } from 'react'
 import './App.css'
-import Board from './components/board'
+import Game from './components/game'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-      <Board />
+      <Game />
     </>
   )
 }

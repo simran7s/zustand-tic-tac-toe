@@ -2,7 +2,7 @@ import { calculateStatus, calculateTurns, calculateWinner } from "../utils/utils
 import Square from "./square"
 
 export default function Board({ xIsNext, squares, onPlay }: 
-{ xIsNext: boolean; squares: ('X' | 'O')[]; onPlay: (squares: ('X' | 'O')[]) => void }
+{ xIsNext: boolean; squares: ('X' | 'O'| null)[]; onPlay: (squares: ('X' | 'O'| null)[]) => void }
 ) {
     const winner = calculateWinner(squares)
     const turns = calculateTurns(squares)

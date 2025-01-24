@@ -9,7 +9,7 @@ export default function Game() {
   const xIsNext = currentMove % 2 === 0
   const currentSquares = history[currentMove]
 
-  function handlePlay(nextSquares: ('X' | 'O')[]) {
+  function handlePlay(nextSquares: ('X' | 'O'| null)[]) {
     const nextHistory = history.slice(0, currentMove + 1).concat([nextSquares])
     setHistory(nextHistory)
     setCurrentMove(nextHistory.length - 1)
