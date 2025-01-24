@@ -1,18 +1,27 @@
 import { useGameStore } from '../store/use-game-store';
+import { calculateStatus, calculateTurns, calculateWinner } from '../utils/utils';
 import Square from './square';
 
 export default function Board() {
+    const xIsNext = useGameStore((state) => state.xIsNext)
+    const setXIsNext = useGameStore((state) => state.setXIsNext)
     const squares = useGameStore((state) => state.squares)
     const setSquares = useGameStore((state) => state.setSquares)
+    const winner = calculateWinner(squares)
+    const turns = calculateTurns(squares)
+    const player = xIsNext ? 'X' : 'O'
+    const status = calculateStatus(winner, turns, player)
 
     function handleClick(i) {
-        // if square already filled, ignore click
-        if (squares[i]) return
+
+        // if square already filled or game won, ignore click
+        if (squares[i] || winner) return
 
         // else update square so it is filled
         const nextSquares = squares.slice()
-        nextSquares[i] = 'X'
+        nextSquares[i] = player
         setSquares(nextSquares)
+        setXIsNext(!xIsNext)
       }
 
     return (
