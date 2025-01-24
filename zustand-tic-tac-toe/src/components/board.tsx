@@ -5,6 +5,16 @@ export default function Board() {
     const squares = useGameStore((state) => state.squares)
     const setSquares = useGameStore((state) => state.setSquares)
 
+    function handleClick(i) {
+        // if square already filled, ignore click
+        if (squares[i]) return
+
+        // else update square so it is filled
+        const nextSquares = squares.slice()
+        nextSquares[i] = 'X'
+        setSquares(nextSquares)
+      }
+
     return (
       <div
         style={{
@@ -17,7 +27,11 @@ export default function Board() {
         }}
       >
       {squares.map((square, squareIndex) => (
-        <Square key={squareIndex} value={square} />
+        <Square 
+            key={squareIndex} 
+            value={square} 
+            onSquareClick={() => handleClick(squareIndex)}
+        />
       ))}
       </div>
     )
