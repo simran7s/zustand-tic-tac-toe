@@ -1,4 +1,4 @@
-function Square({ value, onSquareClick }) {
+export default function Square({ value, onSquareClick}: { value: string, onSquareClick: () => void }) {
     return (
       <button
         style={{
