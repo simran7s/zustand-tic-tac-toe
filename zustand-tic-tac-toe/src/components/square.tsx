@@ -12,6 +12,7 @@ export default function Square({ value, onSquareClick}: { value: string, onSquar
           borderRadius: 0,
           fontSize: '1rem',
           fontWeight: 'bold',
+          color: '#333',
         }}
         onClick={onSquareClick}
       >
